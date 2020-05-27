@@ -1,5 +1,6 @@
 html {
   -ms-overflow-style: none !important;
+  background-color: #191919;
   height: 100%;
 }
 
@@ -34,7 +35,7 @@ body {
 }
 
 .row {
-  
+
 }
 
 a {
