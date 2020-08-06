@@ -1,12 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 
 import Home from './pages/Home';
 import About from './pages/About';
-import Contact from './pages/Contact';
+import Portfolio from './pages/Portfolio';
 import Navbar from './components/Navbar';
+
+library.add(fab, faEnvelope);
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,13 +19,11 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     color: 'white',
     overflowY: 'auto',
-    backgroundColor: '#191919',
-    height: '100vh',
-    width: '100vw',
+    backgroundColor: '#242020',
   },
   appbar: {
-    height: '64px',
-    backgroundColor: '#1e1e1e',
+    height: '72px',
+    backgroundColor: '#000',
     opacity: 0.85,
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
@@ -31,16 +34,19 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flex: 1,
-    maxWidth: '1000px',
-    padding: '3em',
+    minHeight: '1px',
+    padding: 0,
   },
   footer: {
-    flexShrink: 0,
-    height: '34px',
+    backgroundColor: '#000',
+    height: '43px',
+    display: 'flex',
+    alignItems: 'center',
     textAlign: 'center',
     justifyContent: 'center',
-    fontSize: '0.9rem',
-    color: '#aaa',
+    fontSize: '1rem',
+    lineHeight: '1.6rem',
+    letterSpacing: '0px',
   },
 }));
 
@@ -56,8 +62,8 @@ export default function App() {
             <Route path='/about'>
               <About />
             </Route>
-            <Route path='/contact'>
-              <Contact />
+            <Route path='/portfolio'>
+              <Portfolio />
             </Route>
             <Route path='/'>
               <Home classes={classes} />

@@ -1,0 +1,74 @@
+@media screen and (max-width: 768px) {
+  .makeStyles-topSection-8 {
+    background-position: 10vw 50%;
+  }
+
+  .row {
+    width: 90%;
+  }
+
+  .col-25 {
+    -ms-flex-preferred-size: 33.33333333%;
+    flex-basis: 33.33333333%;
+    max-width: 33.33333333%;
+  }
+
+  .col-50 {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .col-33 {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .col-67 {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .pr-80 {
+    padding-right: 40px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  h1 {
+    font-size: 5rem !important;
+  }
+
+  .col-67 {
+    text-align: center;
+  }
+
+  .pr-80 {
+    padding-right: 0px;
+  }
+
+  .pr-40 {
+    padding-right: 0px;
+  }
+
+  .contactRow {
+    width: 55% !important;
+    justify-content: space-between !important;
+  }
+
+  .MuiGrid-container {
+    flex-wrap: nowrap !important;
+  }
+
+  .col-25 {
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+
+  .logoski {
+    width: 125px !important;
+  }
+}

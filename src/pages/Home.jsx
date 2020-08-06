@@ -1,126 +1,105 @@
-import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Chip from '@material-ui/core/Chip';
-import Avatar from '@material-ui/core/Avatar';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({
-  homeRoot: {
-    width: '100%',
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    flexBasis: '33.33%',
-    flexShrink: 0,
-  },
-  secondaryHeading: {
-    fontSize: theme.typography.pxToRem(15),
-    color: theme.palette.text.secondary,
-  },
-}));
+import SkillLogo from '../components/SkillLogo';
+import ContactRow from '../components/ContactRow';
+
+import useStyles from '../styles/home';
+import selfPic from '../images/2020.jpg';
+import htmlLogo from '../images/html-css-js_icon.png';
+import graphQLogo from '../images/graphql_logo.png';
+import hostingLogo from '../images/hosting_logo.png';
+import mysqlLogo from '../images/mysql_logo.png';
+import nodeLogo from '../images/nodejs_logo.png';
+import reactLogo from '../images/react_logo.png';
+import reactNatLogo from '../images/reactnative_logo.png';
+import wordprLogo from '../images/wordpress_logo.png';
 
 function Home() {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
 
   return (
     <div className={classes.homeRoot}>
-      <h2 style={{ marginBottom: '3em', textAlign: 'center' }}>Projects</h2>
-      <ExpansionPanel expanded={expanded === 'panel01'} onChange={handleChange('panel01')}>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2bh-content"
-          id="panel2bh-header"
-        >
-          <Typography className={classes.heading}>NapNow</Typography>
-          <Typography className={classes.secondaryHeading}>
-            Sleep cycle app [React-Native]
-          </Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            NapNow is a sleep cycle app built with react-native. It was created to estimate how long you can nap or sleep to wake up after a full cycle. 
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-      <ExpansionPanel expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
-        >
-          <Typography className={classes.heading}>LimaBid</Typography>
-          <Typography className={classes.secondaryHeading}>
-            Local auction app [React-Native]
-          </Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            LimaBid is a local auction app built with react-native. It was created for quick and easy transactions in an urban or college environment. 
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-      <ExpansionPanel expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2bh-content"
-          id="panel2bh-header"
-        >
-          <Typography className={classes.heading}>AlertHero</Typography>
-          <Typography className={classes.secondaryHeading}>
-            Private chat app [React-Native, Node.Js, React]
-          </Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            AlertHero is a private chat app built with react-native. It was created for small to medium communities to share "alerts" and chat securely. 
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-      <ExpansionPanel expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3bh-content"
-          id="panel3bh-header"
-        >
-          <Typography className={classes.heading}>M3Watch</Typography>
-          <Typography className={classes.secondaryHeading}>
-            Financial news tool built with APIs [React, APIs]
-          </Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            M3-Watch is a a mobile-ready market data and financial news research tool. Built on Google Materialize, it employs a minimalist design aesthetic to provide users with rapid and intuitive data snapshots of publicly traded company of their interest.
-           <br /><br /><a href="https://github.com/Nhawley/m3-watch" target="_blank" rel="noopener noreferrer">GitHub Link</a>
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-      <ExpansionPanel expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel4bh-content"
-          id="panel4bh-header"
-        >
-          <Typography className={classes.heading}>BlipBoard</Typography>
-          <Typography className={classes.secondaryHeading}>
-            Web scrapped auto news site [React, Node.Js]
-          </Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            I used a web scrapper to create a quick web app to get all my car news. 
-            <br /><br /><a href="https://github.com/Nhawley/Blipboard" target="_blank" rel="noopener noreferrer">GitHub link</a>
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
+      <section className={`${classes.topSection}`}>
+        <div className='row container'>
+          <div className='col-50'></div>
+          <div className='col-50'>
+            <div>
+              <p className={`${classes.topheading} text-focus-in `}>Hi I'm</p>
+            </div>
+            <div>
+              <h1 className={`${classes.heading} text-focus-in `}>
+                Nate <br /> Hawley III
+              </h1>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className={classes.aboutSection}>
+        <div className='custom-shape-divider-bottom-1596551031'>
+          <svg
+            data-name='Layer 1'
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 1200 120'
+            preserveAspectRatio='none'
+          >
+            <path
+              d='M1200 120L0 16.48 0 0 1200 0 1200 120z'
+              className='shape-fill'
+            ></path>
+          </svg>
+        </div>
+        <div className='row container' style={{ zIndex: '1' }}>
+          <div className='col-50'>
+            <h2>Web & Mobile</h2>
+            <h3>Fullstack Developer</h3>
+            <p className='pr-40' style={{ marginBottom: '30px' }}>
+              I am a Full Stack Developer with over 4 years of experience
+              building websites and mobile apps. I work primarily with Wordpress
+              and Javascript frameworks (React & React-Native).
+              <br />I am always looking forward to learning new technologies and
+              improving on my current skills. Continue scrolling to check out
+              some of my work.
+            </p>
+            <Link className='button shadow-pop-tl' to='/about'>
+              Learn More
+            </Link>
+          </div>
+          <div className='col-50 flex-center'>
+            <img src={selfPic} alt='portrait' className={classes.img} />
+          </div>
+        </div>
+      </section>
+      <section className={classes.skillSection}>
+        <div className='row container' style={{ display: 'block' }}>
+          <h2
+            style={{
+              textAlign: 'center',
+              margin: 0,
+              width: '100%',
+              marginBottom: '25px',
+            }}
+          >
+            Skills
+          </h2>
+        </div>
+        <div className='row container'>
+          <SkillLogo title='HTML, CSS, & JS' image={htmlLogo} num={5} />
+          <SkillLogo title='Wordpress' image={wordprLogo} num={4} />
+          <SkillLogo title='React' image={reactLogo} num={4} />
+          <SkillLogo title='Node JS' image={nodeLogo} num={4} />
+          <SkillLogo title='React Native' image={reactNatLogo} num={3} />
+          <SkillLogo title='GraphQL' image={graphQLogo} num={2} />
+          <SkillLogo title='MySQL' image={mysqlLogo} num={3} />
+          <SkillLogo title='Self Hosting' image={hostingLogo} num={4} />
+        </div>
+      </section>
+      <section>
+        <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          Reach out to me here
+        </h2>
+        <ContactRow />
+      </section>
     </div>
   );
 }
