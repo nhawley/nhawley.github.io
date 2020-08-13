@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Portfolio from './pages/Portfolio';
 import Navbar from './components/Navbar';
+import ScrollToTop from './components/ScrollToTop';
 
 library.add(fab, faEnvelope);
 
@@ -55,6 +56,7 @@ export default function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className={classes.root}>
         <Navbar classes={classes} />
         <Container maxWidth='lg' className={classes.content}>
@@ -70,7 +72,9 @@ export default function App() {
             </Route>
           </Switch>
         </Container>
-        <footer className={classes.footer}>Nate Hawley III &copy; {(new Date().getFullYear())}</footer>
+        <footer className={classes.footer}>
+          Nate Hawley III &copy; {new Date().getFullYear()}
+        </footer>
       </div>
     </Router>
   );

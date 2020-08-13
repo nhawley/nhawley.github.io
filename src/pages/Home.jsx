@@ -6,6 +6,9 @@ import ContactRow from '../components/ContactRow';
 
 import useStyles from '../styles/home';
 import selfPic from '../images/2020.jpg';
+import small from '../images/2020-small.jpg';
+import medium from '../images/2020-med.jpg';
+import large from '../images/2020-lrg.jpg';
 import htmlLogo from '../images/html-css-js_icon.png';
 import graphQLogo from '../images/graphql_logo.png';
 import hostingLogo from '../images/hosting_logo.png';
@@ -66,7 +69,11 @@ function Home() {
             </Link>
           </div>
           <div className='col-50 flex-center'>
-            <img src={selfPic} alt='portrait' className={classes.img} />
+            <img 
+              src={selfPic}
+              srcSet={`${small} 430w, ${medium} 900w, ${large} 1500w`}
+              alt='portrait' className={classes.img}
+            />
           </div>
         </div>
       </section>
