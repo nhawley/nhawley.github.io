@@ -1,0 +1,43 @@
+.flip-word {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffe500;
+  text-shadow: 0 0 8px rgba(255, 229, 0, 0.7);
+  perspective: 1200px;
+}
+
+/* Animate the outgoing word */
+.flip-word.out {
+  animation: flipOut 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes flipOut {
+  0% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(-90deg);
+    opacity: 0;
+  }
+}
+
+/* Animate the incoming word */
+.flip-word.in {
+  animation: flipIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes flipIn {
+  0% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  60% {
+    transform: rotateX(-10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
