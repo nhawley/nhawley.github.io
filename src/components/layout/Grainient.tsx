@@ -152,6 +152,15 @@ const Grainient = ({
   className?: string;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const programRef = useRef<Program | null>(null);
+
+  useEffect(() => {
+    if (!programRef.current) return;
+    const uniforms = programRef.current.uniforms;
+    uniforms.uColor1.value = new Float32Array(hexToRgb(color1));
+    uniforms.uColor2.value = new Float32Array(hexToRgb(color2));
+    uniforms.uColor3.value = new Float32Array(hexToRgb(color3));
+  }, [color1, color2, color3]);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -203,6 +212,7 @@ const Grainient = ({
     });
 
     const mesh = new Mesh(gl, { geometry, program });
+    programRef.current = program;
 
     const setSize = () => {
       const width = Math.max(1, Math.floor(window.innerWidth));
@@ -228,6 +238,7 @@ const Grainient = ({
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener('resize', setSize);
+      programRef.current = null;
       try {
         container.removeChild(canvas);
       } catch {
@@ -253,10 +264,7 @@ const Grainient = ({
     saturation,
     centerX,
     centerY,
-    zoom,
-    color1,
-    color2,
-    color3
+    zoom
   ]);
 
   return (

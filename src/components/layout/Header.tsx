@@ -7,11 +7,19 @@ export function Header() {
   const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
+    let rafId: number | null = null;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 50);
+        rafId = null;
+      });
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const navItems = [
@@ -46,7 +54,7 @@ export function Header() {
                   : 'hover:text-orange'
               }`}
             >
-              Nate Hawley III
+              NH III
             </button>
           </div>
 

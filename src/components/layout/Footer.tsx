@@ -1,12 +1,12 @@
 import { Fragment } from 'react';
 
+const socialLinks = [
+  { url: 'https://www.linkedin.com/in/nate-hawley-iii/', label: 'LinkedIn' },
+  { url: 'https://github.com/nhawley', label: 'GitHub' },
+];
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  
-  const socialLinks = [
-    { url: 'https://www.linkedin.com/in/nate-hawley-iii/', label: 'LinkedIn' },
-    { url: 'https://github.com/nhawley', label: 'GitHub' },
-  ];
 
   return (
     <footer className="bg-black/10 text-cream py-5">

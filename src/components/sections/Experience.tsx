@@ -11,12 +11,12 @@ import {
 
 import { skills } from '../../data/skills';
 
-export function Experience() {
-  const coreSkills = skills.filter((s) => s.category === 'core');
-  const exploringSkills = skills.filter((s) => s.category === 'exploring');
-  const toolSkills = skills.filter((s) => s.category === 'tools');
+const coreSkills = skills.filter((s) => s.category === 'core');
+const exploringSkills = skills.filter((s) => s.category === 'exploring');
+const toolSkills = skills.filter((s) => s.category === 'tools');
 
-  const SkillBadge = ({ name, level }: { name: string; level?: string, progress?: number}) => (
+function SkillBadge({ name, level }: { name: string; level?: string; progress?: number }) {
+  return (
     <Item variant="outline" className="bg-white rounded-lg border border-black hover:border-green transition-colors">
       <ItemContent>
         <ItemTitle>{name}</ItemTitle>
@@ -30,6 +30,9 @@ export function Experience() {
       }
     </Item>
   );
+}
+
+export function Experience() {
 
   return (
     <section id="experience" className="relative min-h-screen flex items-center justify-center px-4 md:px-8 pt-20">
@@ -102,7 +105,7 @@ export function Experience() {
         <div className="flex justify-end mt-8">
           <motion.div
             animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
+            transition={{ duration: 1.5, repeat: 5, repeatType: 'mirror' }}
           >
             <ArrowDown className="text-gray-400" size={32} />
           </motion.div>
