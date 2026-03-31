@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export function Contact() {
   return (
-    <section id="contact" className="section flex items-center justify-center bg-green px-4 md:px-8 pt-15 pb-15">
+    <section id="contact" className="relative min-h-screen flex items-center justify-center px-4 md:px-8 pt-20">
       <motion.div
         className="max-w-3xl mx-auto text-center"
         initial={{ opacity: 0, y: 20 }}
@@ -15,15 +15,15 @@ export function Contact() {
           particularly with teams building AI-powered products.
         </p>
 
-      <motion.a
-        href="mailto:nhawley5@gmail.com"
-        className="inline-block px-8 py-4 bg-orange text-white rounded-lg font-semibold hover:bg-primary-700 transition-colors shadow-lg hover:shadow-xl"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        Get In Touch
-      </motion.a>
-    </motion.div>
+        <motion.a
+          href="mailto:nhawley5@gmail.com"
+          className="inline-block px-8 py-4 bg-orange text-white rounded-lg font-semibold hover:bg-primary-700 transition-colors shadow-lg hover:shadow-xl"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Get In Touch
+        </motion.a>
+      </motion.div>
     </section>
   );
 }

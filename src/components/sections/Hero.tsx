@@ -15,7 +15,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center bg-cream px-4 md:px-8 pt-20"
+      className="relative min-h-screen flex items-center justify-center px-4 md:px-8 pt-20"
     >
       <div className="max-w-4xl mx-auto text-center">
         <motion.div

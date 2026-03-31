@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code2, Rocket, Users, Zap } from 'lucide-react';
+import { ArrowDown, Code2, Rocket, Users, Zap } from 'lucide-react';
 
 export function About() {
   const highlights = [
@@ -26,7 +26,7 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="section flex items-center justify-center bg-black px-4 md:px-8 pt-15 pb-15">
+    <section id="about" className="relative min-h-screen flex items-center justify-center px-4 md:px-8 pt-20">
       <div className="max-w-4xl mx-auto">
         <motion.h2
           className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 section-title text-orange"
@@ -88,6 +88,14 @@ export function About() {
               </motion.div>
             );
           })}
+        </div>
+        <div className="flex justify-start mt-8">
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          >
+            <ArrowDown className="text-gray-400" size={32} />
+          </motion.div>
         </div>
       </div>
     </section>

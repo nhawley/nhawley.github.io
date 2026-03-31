@@ -14,9 +14,16 @@
   --font-sans: "Geist", system-ui, sans-serif;  
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
   --color-black: #161616;
-  --color-cream: #ECDBBA;
-  --color-green: #346751;
-  --color-orange: #C84B31;
+  --color-navy: #091f5b;
+  --color-steel: #15205b;
+  --color-cobalt: #4f82b9;
+
+  --color-h1: #f0f4ff;
+  --color-sub: #c8d8f0;
+  --color-link: #7eb8f7;
+
+  --color-h1-light :#0d1a4a;
+  --color-sub-light:  #2a3a6e;
 }
 
 @theme inline {
