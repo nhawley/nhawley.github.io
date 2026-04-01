@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, Code2, Rocket, Users, Zap } from 'lucide-react';
 
+import { Globe } from './About/interactive-globe';
+
 export function About() {
   const highlights = [
     {
@@ -29,37 +31,43 @@ export function About() {
     <section id="about" className="relative min-h-screen flex items-center justify-center px-4 md:px-8 pt-20">
       <div className="max-w-4xl mx-auto">
         <motion.h2
-          className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 section-title text-orange"
+          className="text-4xl font-bold mb-6 section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          About Me
+          About
         </motion.h2>
 
         <motion.div
-          className="prose prose-lg max-w-none mb-12"
+          className="grid grid-cols-2 mb-12 rounded-xl backdrop-blur-md bg-white/3 border border-white/10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
         >
-          <p className="text-white text-lg leading-relaxed mb-6">
-            I'm a full-stack engineer with a decade of experience building high-performance 
-            web and mobile apps. I specialize in React, TypeScript, and React Native, 
-            with a recent focus on integrating AI/ML capabilities into user-facing products.
-          </p>
-          <p className="text-white text-lg leading-relaxed mb-6">
-            Currently exploring opportunities in the Bay Area where I can contribute to 
-            products that leverage modern AI tech. I'm particularly interested in 
-            companies pushing the boundaries of reactive UI, developer tools, and 
-            consumer AI products.
-          </p>
-          <p className="text-white text-lg leading-relaxed">
-            Beyond code, I'm passionate about automotive technology and audio production. 
-            I believe the best software comes from understanding users deeply and iterating 
-            quickly. I write clean, maintainable code and enjoy mentoring junior developers.
-          </p>
+          <div>
+            <Globe size={450} />
+            <p className='text-center'>SF Based • Globally Available</p>
+          </div>
+          <div className="prose prose-lg max-w-none">
+            <p className="text-l1g leading-relaxed mb-6">
+              I'm a full-stack engineer with a decade of experience building high-performance
+              web and mobile apps. I specialize in React, TypeScript, and React Native,
+              with a recent focus on integrating AI/ML capabilities into user-facing products.
+            </p>
+            <p className="text-lg leading-relaxed mb-6">
+              Currently exploring opportunities in the Bay Area where I can contribute to
+              products that leverage modern AI tech. I'm particularly interested in
+              companies pushing the boundaries of reactive UI, developer tools, and
+              consumer AI products.
+            </p>
+            <p className="text-lg leading-relaxed">
+              Beyond code, I'm passionate about automotive technology and audio production.
+              I believe the best software comes from understanding users deeply and iterating
+              quickly. I write clean, maintainable code and enjoy mentoring junior developers.
+            </p>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

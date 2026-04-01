@@ -78,10 +78,10 @@ export function Header() {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-cobalt/70 dark:bg-navy hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+              className="p-2 rounded-lg bg-cobalt/50 dark:bg-navy/50 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
               aria-label="Toggle theme"
             >
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
+              {isDark ? <Sun size={24} /> : <Moon size={24} />}
             </button>
           </div>
 

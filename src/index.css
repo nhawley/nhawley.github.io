@@ -97,4 +97,8 @@
     /* or use regular CSS */
     font-family: 'Padaloma', serif;
   }
+  h2 {
+    font-family: 'Padaloma', serif;
+    text-transform: uppercase;
+  }
 }
