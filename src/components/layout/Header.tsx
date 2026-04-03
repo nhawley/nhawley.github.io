@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Sun, Moon } from 'lucide-react';
+
 import { useTheme } from '../../hooks/useTheme';
 
 export function Header() {
@@ -39,8 +40,8 @@ export function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-orange/40 backdrop-blur-md shadow-md'
-          : 'bg-black/0'
+          ? 'bg-black/5 backdrop-blur-md shadow-md'
+          : 'bg-white/5'
       }`}
     >
       <nav className="max-w-6xl mx-auto px-4 md:px-8 py-4">
@@ -48,11 +49,7 @@ export function Header() {
           <div className="flex-1">
             <button
               onClick={() => scrollToSection('#hero')}
-              className={`text-xl font-bold text-cream transition-colors ${
-                isScrolled
-                  ? 'hover:text-black'
-                  : 'hover:text-orange'
-              }`}
+              className="text-xl font-bold hover:text-link"
             >
               NH III
             </button>
@@ -63,11 +60,7 @@ export function Header() {
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className={`text-cream transition-colors ${
-                  isScrolled
-                    ? 'hover:text-black'
-                    : 'hover:text-orange'
-                }`}
+                className="hover:text-link cursor-pointer"
               >
                 {item.label}
               </button>
@@ -75,10 +68,9 @@ export function Header() {
           </div>
 
           <div className="flex-1 flex justify-end">
-            {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-cobalt/50 dark:bg-navy/50 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+              className="p-2 rounded-full bg-cobalt/30 dark:bg-navy/30 hover:bg-white/55 dark:hover:bg-black/55 transition-colors cursor-pointer"
               aria-label="Toggle theme"
             >
               {isDark ? <Sun size={24} /> : <Moon size={24} />}

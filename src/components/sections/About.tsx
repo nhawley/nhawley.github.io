@@ -50,22 +50,17 @@ export function About() {
             <Globe size={450} />
             <p className='text-center'>SF Based • Globally Available</p>
           </div>
-          <div className="prose prose-lg max-w-none">
-            <p className="text-l1g leading-relaxed mb-6">
+          <div className="prose prose-lg max-w-none space-x-4">
+            <p className="text-lg leading-relaxed mb-4">
               I'm a full-stack engineer with a decade of experience building high-performance
               web and mobile apps. I specialize in React, TypeScript, and React Native,
               with a recent focus on integrating AI/ML capabilities into user-facing products.
             </p>
-            <p className="text-lg leading-relaxed mb-6">
+            <p className="text-lg leading-relaxed">
               Currently exploring opportunities in the Bay Area where I can contribute to
               products that leverage modern AI tech. I'm particularly interested in
               companies pushing the boundaries of reactive UI, developer tools, and
               consumer AI products.
-            </p>
-            <p className="text-lg leading-relaxed">
-              Beyond code, I'm passionate about automotive technology and audio production.
-              I believe the best software comes from understanding users deeply and iterating
-              quickly. I write clean, maintainable code and enjoy mentoring junior developers.
             </p>
           </div>
         </motion.div>
