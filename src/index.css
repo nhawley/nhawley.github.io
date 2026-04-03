@@ -93,9 +93,11 @@
     @apply bg-background text-foreground;
   }
   h1 {
-    @apply font-serif text-4xl font-bold;
-    /* or use regular CSS */
     font-family: 'Padaloma', serif;
+  }
+  .scramble {
+    font-family: 'Geist', serif;
+    text-transform: capitalize;
   }
   h2 {
     font-family: 'Padaloma', serif;

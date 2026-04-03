@@ -5,7 +5,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from './accordian';
+} from './accordion';
 
 interface FeatureItem {
   id: number;
@@ -56,8 +56,7 @@ const defaultFeatures: FeatureItem[] = [
   },
 ];
 
-export default AboutAccordion = ({ features = defaultFeatures }: Feature197Props) => {
-  const [activeTabId, setActiveTabId] = useState<number | null>(1);
+export default function AboutAccordion({ features = defaultFeatures }: Feature197Props) {
   const [activeImage, setActiveImage] = useState(features[0].image);
 
   return (
@@ -69,14 +68,11 @@ export default AboutAccordion = ({ features = defaultFeatures }: Feature197Props
               {features.map((tab) => (
                 <AccordionItem key={tab.id} value={`item-${tab.id}`}>
                   <AccordionTrigger
-                    onClick={() => {
-                      setActiveImage(tab.image);
-                      setActiveTabId(tab.id);
-                    }}
+                    onClick={() => setActiveImage(tab.image)}
                     className="cursor-pointer py-5 !no-underline transition"
                   >
                     <h6
-                      className={`text-xl font-semibold ${tab.id === activeTabId ? "text-foreground" : "text-muted-foreground"}`}
+                      className={`text-xl font-semibold ${tab.image === activeImage ? "text-foreground" : "text-muted-foreground"}`}
                     >
                       {tab.title}
                     </h6>
@@ -108,4 +104,4 @@ export default AboutAccordion = ({ features = defaultFeatures }: Feature197Props
       </div>
     </section>
   );
-};
+}

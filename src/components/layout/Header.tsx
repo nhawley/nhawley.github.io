@@ -51,7 +51,7 @@ export function Header() {
               onClick={() => scrollToSection('#hero')}
               className="text-xl font-bold hover:text-link"
             >
-              NH III
+              NH
             </button>
           </div>
 

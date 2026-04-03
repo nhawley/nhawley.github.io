@@ -2,6 +2,16 @@ import { ArrowDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 import { ChatCircle } from './Hero/ChatCircle';
+import { RoleScramble } from './Hero/RoleScramble';
+import { ResumeButton } from './Hero/ResumeButton';
+import { TechStack } from './Hero/TechStack';
+
+const roles = [
+  'Full-Stack Developer',
+  'Software Developer in Test (SDET)',
+  'Mobile Engineer',
+  'Automated QA Engineer'
+];
 
 export function Hero() {
   return (
@@ -13,52 +23,51 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.1 }}
         >
           <motion.h1
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-orange"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.1 }}
           >
-            Nate Hawley
+            NATE HAWLEY
           </motion.h1>
 
-          <motion.h2
-            className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 text-gray-800 dark:text-gray-200"
+          <RoleScramble
+            roles={roles}
+            interval={5000}
+            className="scramble text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 text-gray-800 dark:text-gray-200"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          />
+
+          <motion.p
+            className="text-lg md:text-xl mb-4 max-w-2xl mx-auto text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            Deploying Solutions & Automating Quality
+          </motion.p>
+
+          <motion.div
+            className="flex justify-center mb-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.35 }}
+          >
+            <TechStack />
+          </motion.div>
+
+          <motion.div
+            className="flex justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            Senior Full-Stack Developer
-          </motion.h2>
-
-          <motion.p
-            className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            React • TypeScript • React Native
-            <br />
-            <span className="text-base">
-              Deploying Ideas Since 2016
-            </span>
-          </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-          >
-            <a
-              href="/resume.pdf"
-              download
-              className="px-8 py-3 border-2 border-cobalt text-sub rounded-lg font-semibold hover:bg-green hover:text-cream transition-colors"
-            >
-              Download Resume
-            </a>
+            <ResumeButton />
           </motion.div>
 
         </motion.div>
@@ -71,7 +80,7 @@ export function Hero() {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         >
-          <ArrowDown className="text-gray-400" size={32} />
+          <ArrowDown size={32} />
         </motion.div>
       </div>
     </section>

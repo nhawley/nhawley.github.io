@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, Code2, Rocket, Users, Zap } from 'lucide-react';
 
-import { Globe } from './About/interactive-globe';
+import { Globe } from './About/Globe';
 
 export function About() {
   const highlights = [
