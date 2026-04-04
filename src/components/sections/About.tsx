@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowDown, Code2, Rocket, Users, Zap } from 'lucide-react';
 
 import { Globe } from './About/Globe';
+import { ProfileCard } from './About/ProfileCard';
 
 export function About() {
   const highlights = [
@@ -50,19 +51,7 @@ export function About() {
             <Globe size={450} />
             <p className='text-center'>SF Based • Globally Available</p>
           </div>
-          <div className="prose prose-lg max-w-none space-x-4">
-            <p className="text-lg leading-relaxed mb-4">
-              I'm a full-stack engineer with a decade of experience building high-performance
-              web and mobile apps. I specialize in React, TypeScript, and React Native,
-              with a recent focus on integrating AI/ML capabilities into user-facing products.
-            </p>
-            <p className="text-lg leading-relaxed">
-              Currently exploring opportunities in the Bay Area where I can contribute to
-              products that leverage modern AI tech. I'm particularly interested in
-              companies pushing the boundaries of reactive UI, developer tools, and
-              consumer AI products.
-            </p>
-          </div>
+          <ProfileCard />
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

@@ -21,10 +21,8 @@ const DEFAULT_MARKERS = [
 
 const DEFAULT_CONNECTIONS: { from: [number, number]; to: [number, number] }[] =
   [
-    // NYC -> SF -> Tokyo
     { from: [40.71, -74.01], to: [37.78, -122.42] },
     { from: [37.78, -122.42], to: [35.68, 139.69] },
-    // NYC -> London -> Tokyo -> SF
     { from: [40.71, -74.01], to: [51.51, -0.13] },
     { from: [51.51, -0.13], to: [35.68, 139.69] },
     { from: [35.68, 139.69], to: [37.78, -122.42] },
