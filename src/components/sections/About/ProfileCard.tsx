@@ -59,8 +59,17 @@ export function ProfileCard() {
       <div className="p-4 flex flex-col gap-4 text-black dark:text-white">
         {/* Header row */}
         <div className="flex items-start justify-between">
-          <span className="text-xs font-semibold tracking-widest uppercase">Nate Hawley III</span>
-          <span className="text-xs font-semibold tracking-widest uppercase text-right opacity-80">Software Developer in Test</span>
+          <div className="flex flex-col gap-1">
+            <span className="text-xs font-semibold tracking-widest uppercase">Nate Hawley III</span>
+            <span className="text-xs font-semibold tracking-widest uppercase opacity-80">Software Developer in Test</span>
+          </div>
+          <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-full border backdrop-blur-sm bg-green-500/10 border-green-500/40 dark:bg-green-400/10 dark:border-green-400/25">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-green-500 dark:bg-green-400" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500 dark:bg-green-400" />
+            </span>
+            <span className="text-xs font-medium tracking-wide text-black dark:text-white/80">Available</span>
+          </div>
         </div>
 
         {/* Description */}

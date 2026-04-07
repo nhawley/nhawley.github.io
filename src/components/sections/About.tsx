@@ -1,37 +1,16 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Code2, Rocket, Users, Zap } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 
 import { Globe } from './About/Globe';
 import { Pill } from './About/Pill';
 import { ProfileCard } from './About/ProfileCard';
+import AboutAccordion from './About/AboutAccordion';
 
 export function About() {
-  const highlights = [
-    {
-      icon: Code2,
-      title: 'Full-Stack Development',
-      description: 'Expert in React, TypeScript, and React Native with a decade of experience',
-    },
-    {
-      icon: Users,
-      title: 'Team Collaboration',
-      description: 'Strong mentor and collaborator with proven leadership experience',
-    },
-    {
-      icon: Rocket,
-      title: 'AI/ML Integration',
-      description: 'Building next-gen applications with LLMs and modern AI technologies',
-    },
-    {
-      icon: Zap,
-      title: 'Performance Focus',
-      description: 'Obsessed with building fast, scalable, and maintainable applications',
-    },
-  ];
 
   return (
     <section id="about" className="relative min-h-screen flex items-center justify-center px-4 md:px-8 pt-20">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <motion.h2
           className="text-4xl font-bold mb-6 section-title"
           initial={{ opacity: 0, y: 20 }}
@@ -42,7 +21,7 @@ export function About() {
         </motion.h2>
 
         <motion.div
-          className="grid grid-cols-2 mb-6 rounded-xl p-3 backdrop-blur-md bg-white/3 border border-white/10"
+          className="grid grid-cols-2 mb-6 rounded-xl p-4 backdrop-blur-md bg-white/3 border border-white/10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -56,35 +35,18 @@ export function About() {
           <ProfileCard />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 p-4 gap-6 backdrop-blur-md bg-white/3 border border-white/10">
-          {highlights.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={item.title}
-                className="card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    <div className="p-3 bg-primary-100 dark:bg-primary-900/30 rounded-lg">
-                      <Icon className="text-cream" size={24} />
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-2 text-cream">{item.title}</h3>
-                    <p className="text-white">{item.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+        <div className="grid mb-6 rounded-xl p-4 backdrop-blur-md bg-white/3 border border-white/10">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
+            <AboutAccordion />
+          </motion.div>
         </div>
 
-        <div className="flex justify-start mt-10">
+        <div className="flex justify-start mt-6">
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
