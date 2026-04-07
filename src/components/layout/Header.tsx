@@ -49,9 +49,9 @@ export function Header() {
           <div className="flex-1">
             <button
               onClick={() => scrollToSection('#hero')}
-              className="text-xl font-bold hover:text-link"
+              className="logo-text text-xl font-bold hover:text-link cursor-pointer"
             >
-              NH
+              NH3
             </button>
           </div>
 

@@ -99,6 +99,10 @@
     font-family: 'Geist', serif;
     text-transform: capitalize;
   }
+  .logo-text {
+    font-family: 'Padaloma', serif;
+    text-transform: uppercase;
+  }
   h2 {
     font-family: 'Padaloma', serif;
     text-transform: uppercase;
