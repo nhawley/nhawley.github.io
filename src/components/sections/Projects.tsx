@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
-import { ProjectCard } from '../ui/ProjectCard';
-import { projects } from '../../data/projects';
+import { ArrowUpRight } from 'lucide-react';
+
+import { ProjectCard } from './Projects/ProjectCard';
+import { projects } from './Projects/projects';
+import { GithubIcon } from '../ui/icons';
 
 export function Projects() {
   const featuredProjects = projects.filter((p) => p.featured);
@@ -21,8 +24,8 @@ export function Projects() {
           >
             Projects
           </motion.h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-12 max-w-2xl">
-            Here are some of my recent projects showcasing my skills
+          <p className="mb-12 max-w-2xl">
+            Here are some of the projects I'm working on:
           </p>
         </motion.div>
 
@@ -32,7 +35,6 @@ export function Projects() {
           ))}
         </div>
 
-        {/* View All Projects Link */}
         <motion.div
           className="text-center mt-12"
           initial={{ opacity: 0 }}
@@ -43,9 +45,11 @@ export function Projects() {
             href="https://github.com/nhawley"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 text-primary-600 dark:text-primary-400 hover:underline"
+            className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full border backdrop-blur-sm bg-[rgba(30,80,160,0.1)] border-[rgba(30,80,180,0.4)] dark:bg-[rgba(100,180,255,0.08)] dark:border-[rgba(100,180,255,0.25)]"
           >
-            <span>View all projects on GitHub</span>
+            <GithubIcon />
+            <span className="text-sm font-medium tracking-wide text-black dark:text-white/80">View all on GitHub</span>
+            <ArrowUpRight size={12} className="text-black dark:text-white" />
           </a>
         </motion.div>
       </div>

@@ -15,32 +15,39 @@ interface Feature197Props {
 const defaultFeatures: FeatureItem[] = [
   {
     id: 1,
-    title: "Ready-to-Use UI Blocks",
+    title: "Testing & Quality",
     image: "https://shadcnblocks.com/images/block/placeholder-1.svg",
     description:
-      "Browse through our extensive collection of pre-built UI blocks designed with shadcn/ui. Each block is carefully crafted to be responsive, accessible, and easily customizable. Simply copy and paste the code into your project.",
+      "Playwright, Detox, Cypress, Jest, BrowserStack, real-world simulation",
   },
   {
     id: 2,
-    title: "Tailwind CSS & TypeScript",
+    title: "Languages & Frameworks",
     image: "https://shadcnblocks.com/images/block/placeholder-2.svg",
     description:
-      "Built with Tailwind CSS for rapid styling and TypeScript for type safety. Our blocks leverage the full power of Tailwind's utility classes while maintaining clean, type-safe code that integrates seamlessly with your Next.js projects.",
+      "TypeScript, JavaScript, Node.js, React, React Native, Express, PHP, Python, Rust",
   },
   {
     id: 3,
-    title: "Dark Mode & Customization",
+    title: "API & Integration Testing",
     image: "https://shadcnblocks.com/images/block/placeholder-3.svg",
     description:
-      "Every block supports dark mode out of the box and can be customized to match your brand. Modify colors, spacing, and typography using Tailwind's configuration. The shadcn/ui theming system makes it easy to maintain consistency across your site.",
+      "REST API testing, contract testing patterns, service testability",
   },
   {
     id: 4,
-    title: "Accessibility First",
+    title: "CI/CD & DevOps",
     image: "https://shadcnblocks.com/images/block/placeholder-4.svg",
     description:
-      "All blocks are built with accessibility in mind, following WCAG guidelines. They include proper ARIA labels, keyboard navigation support, and semantic HTML structure. Ensure your website is usable by everyone without extra effort.",
+      "GitHub Actions, CodeMagic, Fastlane, release-gating pipelines, hermetic test environments",
   },
+  {
+    id: 5,
+    title: "AI & Automation",
+    image: "https://shadcnblocks.com/images/block/placeholder-4.svg",
+    description:
+      "Overclock AI Fellowship - Prompt engineering and AI assisted test generation"
+  }
 ];
 
 export default function AboutAccordion({ features = defaultFeatures }: Feature197Props) {
@@ -59,16 +66,16 @@ export default function AboutAccordion({ features = defaultFeatures }: Feature19
                     onClick={() => setActiveId(feature.id)}
                     className="flex w-full items-center justify-between py-5 text-left transition"
                   >
-                    <h6 className={`text-xl font-semibold transition-colors ${isOpen ? 'text-foreground' : 'text-muted-foreground'}`}>
+                    <h6 className={`text-xl px-4 font-semibold transition-colors ${isOpen ? 'text-foreground' : 'text-muted-foreground'}`}>
                       {feature.title}
                     </h6>
                     <ChevronDown
                       className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
                     />
                   </button>
-                  <div className={`overflow-hidden transition-all duration-200 ${isOpen ? 'max-h-96' : 'max-h-0'}`}>
-                    <p className="mt-3 pb-5 text-muted-foreground">{feature.description}</p>
-                    <div className="pb-5 md:hidden">
+                  <div className={`overflow-hidden transition-all duration-150 ${isOpen ? 'max-h-96' : 'max-h-0'}`}>
+                    <p className={`px-4 mt-3 pb-5 ${isOpen ? 'text-foreground' : 'text-muted-foreground'}`}>{feature.description}</p>
+                    <div className="pb-4 md:hidden">
                       <img
                         src={feature.image}
                         alt={feature.title}
@@ -80,13 +87,13 @@ export default function AboutAccordion({ features = defaultFeatures }: Feature19
               );
             })}
           </div>
-          <div className="relative m-auto hidden w-1/2 overflow-hidden rounded-xl bg-muted md:flex">
+          <div className="p-10 relative m-auto hidden w-1/2 overflow-hidden rounded-xl bg-white/2 dark:bg-black/2 md:flex">
             {features.map((feature) => (
               <img
                 key={feature.id}
                 src={feature.image}
                 alt={feature.title}
-                className={`aspect-4/3 rounded-md object-cover pl-4 ${feature.id === activeId ? 'block' : 'hidden'}`}
+                className={`aspect-square rounded-md object-cover ${feature.id === activeId ? 'block' : 'hidden'}`}
               />
             ))}
           </div>
