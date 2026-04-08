@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Globe } from './About/Globe';
 import { Pill } from './About/Pill';
 import { ProfileCard } from './About/ProfileCard';
-import AboutAccordion from './About/AboutAccordion';
+// import AboutAccordion from './About/AboutAccordion';
 
 export function About() {
 
@@ -34,7 +34,7 @@ export function About() {
           <ProfileCard />
         </motion.div>
 
-        <div className="grid mb-6 rounded-xl p-4 backdrop-blur-md bg-white/3 border border-white/10">
+        {/* <div className="grid mb-6 rounded-xl p-4 backdrop-blur-md bg-white/3 border border-white/10">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -43,7 +43,7 @@ export function About() {
           >
             <AboutAccordion />
           </motion.div>
-        </div>
+        </div> */}
 
       </div>
     </section>

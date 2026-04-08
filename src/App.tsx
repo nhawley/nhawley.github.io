@@ -4,7 +4,7 @@ import { Hero } from './components/sections/Hero';
 import { About } from './components/sections/About';
 import { Projects } from './components/sections/Projects';
 import { Experience } from './components/sections/Experience';
-import { Contact } from './components/sections/Contact';
+// import { Contact } from './components/sections/Contact';
 import Grainient from './components/layout/Grainient';
 import { useTheme } from './hooks/useTheme';
 import { TooltipProvider } from './components/ui/tooltip';
@@ -45,7 +45,7 @@ function App() {
               <About />
               <Experience />
               <Projects />
-              <Contact />
+              {/* <Contact /> */}
             </Grainient>
           </main>
         <Footer />
