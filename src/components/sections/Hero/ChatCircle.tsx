@@ -1,18 +1,14 @@
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { PulsingBorder } from '@paper-design/shaders-react';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 
 export function ChatCircle() {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => { setMounted(true); }, []);
-
   return (
     <div className="absolute bottom-8 right-8 z-30">
       <Tooltip>
         <TooltipTrigger asChild>
           <div className="relative w-20 h-20 flex items-center justify-center cursor-pointer">
-            {mounted && <PulsingBorder
+            <PulsingBorder
               colors={["#f0f4ff", "#4f82b9", "#15205b"]}
               colorBack="#00000000"
               speed={1.5}
