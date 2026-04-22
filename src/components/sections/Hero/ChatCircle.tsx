@@ -1,34 +1,44 @@
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { PulsingBorder } from '@paper-design/shaders-react';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 export function ChatCircle() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="absolute bottom-8 right-8 z-30">
       <Tooltip>
         <TooltipTrigger asChild>
           <div className="relative w-20 h-20 flex items-center justify-center cursor-pointer">
-            <PulsingBorder
-              colors={["#f0f4ff", "#4f82b9", "#15205b"]}
-              colorBack="#00000000"
-              speed={1.5}
-              roundness={1}
-              thickness={0.1}
-              softness={0.2}
-              intensity={5}
-              spotSize={0.1}
-              pulse={0.1}
-              smoke={0.5}
-              smokeSize={4}
-              scale={0.65}
-              rotation={0}
-              frame={9161408.251009725}
-              style={{
-                width: "60px",
-                height: "60px",
-                borderRadius: "50%",
-              }}
-            />
+            {mounted && (
+              <PulsingBorder
+                colors={["#f0f4ff", "#4f82b9", "#15205b"]}
+                colorBack="#00000000"
+                speed={1.5}
+                roundness={1}
+                thickness={0.1}
+                softness={0.2}
+                intensity={5}
+                spotSize={0.1}
+                pulse={0.1}
+                smoke={0.5}
+                smokeSize={4}
+                scale={0.65}
+                rotation={0}
+                frame={9161408.251009725}
+                style={{
+                  width: "60px",
+                  height: "60px",
+                  borderRadius: "50%",
+                }}
+              />
+            )}
 
             {/* Rotating Text Around the Border */}
             <motion.svg
@@ -40,7 +50,6 @@ export function ChatCircle() {
                 repeat: Number.POSITIVE_INFINITY,
                 ease: "linear",
               }}
-              style={{ transform: "scale(1.6)" }}
             >
               <defs>
                 <path id="circle" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />

@@ -74,17 +74,15 @@ export function Header() {
       style={{ color: forcedTextColor }}
     >
       <nav className="max-w-6xl mx-auto px-4 md:px-8 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex-1">
-            <button
-              onClick={() => scrollToSection('#hero')}
-              className="logo-text text-xl font-bold hover:text-link cursor-pointer"
-            >
-              NH3
-            </button>
-          </div>
+        <div className="relative flex items-center justify-between">
+          <button
+            onClick={() => scrollToSection('#hero')}
+            className="logo-text text-xl font-bold hover:text-link cursor-pointer"
+          >
+            NH3
+          </button>
 
-          <div className="flex-1 hidden md:flex items-center justify-center space-x-6">
+          <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <button
                 key={item.label}
@@ -96,16 +94,13 @@ export function Header() {
             ))}
           </div>
 
-          <div className="flex-1 flex justify-end">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full bg-cobalt/30 dark:bg-navy/30 hover:bg-white/55 dark:hover:bg-black/55 transition-colors cursor-pointer"
-              aria-label="Toggle theme"
-            >
-              {isDark ? <Sun size={24} /> : <Moon size={24} />}
-            </button>
-          </div>
-
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-cobalt/30 dark:bg-navy/30 hover:bg-white/55 dark:hover:bg-black/55 transition-colors cursor-pointer"
+            aria-label="Toggle theme"
+          >
+            {isDark ? <Sun size={24} /> : <Moon size={24} />}
+          </button>
         </div>
       </nav>
     </header>
