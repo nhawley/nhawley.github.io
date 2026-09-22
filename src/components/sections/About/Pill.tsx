@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import { ArrowDownIcon, ArrowUpRightIcon } from '../../ui/icons';
 
 interface PillProps {
   text: string;
@@ -19,8 +19,8 @@ export function Pill({ text, href, icon, arrowDown }: PillProps) {
         </span>
       )}
       <span className="text-xs font-medium tracking-wide text-black dark:text-white/80">{text}</span>
-      {href && <ArrowUpRight size={12} className="text-black dark:text-white" />}
-      {arrowDown && <ArrowDown size={12} className="text-black dark:text-white" />}
+      {href && <ArrowUpRightIcon size={12} className="text-black dark:text-white" />}
+      {arrowDown && <ArrowDownIcon size={12} className="text-black dark:text-white" />}
     </>
   );
 

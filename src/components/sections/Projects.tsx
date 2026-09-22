@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
 
 import { ProjectCard } from './Projects/ProjectCard';
 import { projects } from './Projects/projects';
-import { GithubIcon } from '../ui/icons';
+import { GithubIcon, ArrowUpRightIcon } from '../ui/icons';
 
 export function Projects() {
   const featuredProjects = projects.filter((p) => p.featured);
@@ -49,7 +48,7 @@ export function Projects() {
           >
             <GithubIcon />
             <span className="text-sm font-medium tracking-wide text-black dark:text-white/80">View all on GitHub</span>
-            <ArrowUpRight size={12} className="text-black dark:text-white" />
+            <ArrowUpRightIcon size={12} className="text-black dark:text-white" />
           </a>
         </motion.div>
       </div>

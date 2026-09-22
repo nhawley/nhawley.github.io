@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 import { Globe } from './About/Globe';
@@ -6,6 +7,14 @@ import { ProfileCard } from './About/ProfileCard';
 import AboutAccordion from './About/AboutAccordion';
 
 export function About() {
+  const [globeSize, setGlobeSize] = useState(400);
+
+  useEffect(() => {
+    const update = () => setGlobeSize(window.innerWidth < 768 ? 280 : 400);
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
 
   return (
     <section id="about" className="relative min-h-screen flex items-center justify-center px-4 md:px-8 pt-20">
@@ -20,18 +29,20 @@ export function About() {
         </motion.h2>
 
         <motion.div
-          className="grid grid-cols-2 mb-10 rounded-xl p-4 backdrop-blur-md bg-white/3 border border-white/10"
+          className="grid grid-cols-1 md:grid-cols-2 mb-10 rounded-xl p-4 backdrop-blur-md bg-white/3 border border-white/10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
         >
-          <div className="flex flex-col items-center justify-center py-2">
+          <div className="order-1 md:order-2">
+            <ProfileCard />
+          </div>
+          <div className="flex flex-col items-center justify-center py-2 order-2 md:order-1">
             <Pill text="Interactive" />
-            <Globe size={400} />
+            <Globe size={globeSize} />
             <p className='text-center text-sm mb-1'>SF Based • Globally Available</p>
           </div>
-          <ProfileCard />
         </motion.div>
 
         <div className="grid mb-10 rounded-xl p-4 backdrop-blur-md bg-white/3 border border-white/10">

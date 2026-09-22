@@ -76,7 +76,7 @@ export function ZoomParallax({ images }: ZoomParallaxProps) {
 	// Timeline phase
 	const timelineOpacity = useTransform(scrollYProgress, [ZOOM_END - 0.02, ZOOM_END + 0.03], [0, 1]);
 	// Smooth continuous fill for the rail (0% → 100%)
-	const railFillWidth = useTransform(scrollYProgress, [ZOOM_END, 1], ['0%', '100%']);
+	const railFillHeight = useTransform(scrollYProgress, [ZOOM_END, 1], ['0%', '100%']);
 
 	// Snapped active index drives card content
 	const [activeDot, setActiveDot] = useState(0);
@@ -99,7 +99,7 @@ export function ZoomParallax({ images }: ZoomParallaxProps) {
 
 	return (
 		// 1081vh total: 300vh zoom + 781vh timeline
-		<div ref={container} className="relative h-[1081vh]">
+		<div ref={container} className="relative h-[1081vh] overflow-x-clip">
 			<div className="sticky top-0 h-screen overflow-hidden">
 				{/* Parallax images */}
 				{images.map(({ src, alt }, index) => {
@@ -127,65 +127,53 @@ export function ZoomParallax({ images }: ZoomParallaxProps) {
 					style={{ opacity: timelineOpacity }}
 					className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none"
 				>
-					<div className="container mx-auto px-8 flex flex-col gap-6 pointer-events-auto">
+					<div className="container mx-auto px-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center pointer-events-auto">
 
-						{/* Rail timeline */}
-						<div className="flex flex-col gap-0">
-							{/* Diagonal company labels */}
-							<div className="relative h-14">
-								{timelineItems.map((item, i) => {
-									const pct = (i / (n - 1)) * 100;
-									const passed = activeDot >= i;
-									return (
-										<div
-											key={i}
-											className="absolute bottom-0"
-											style={{ left: `${pct}%` }}
-										>
-											<span
-												className={`logo-text block text-[12px] pl-2 whitespace-nowrap -rotate-45 origin-bottom-left transition-colors duration-300 ${
-													passed ? 'text-black bg-white/80 rounded-xl px-2' : 'text-black/35'
-												}`}
-											>
-												{item.company}
-											</span>
-										</div>
-									);
-								})}
-							</div>
-
+						{/* Vertical rail timeline */}
+						<div className="relative shrink-0 w-full md:w-40" style={{ height: `${(n - 1) * 64 + 16}px` }}>
 							{/* Track */}
-							<div className="relative h-1 bg-cobalt/20 rounded-full">
+							<div className="absolute left-2 top-0 w-1 h-full bg-cobalt/20 rounded-full">
 								{/* Animated fill */}
 								<motion.div
-									style={{ width: railFillWidth }}
-									className="absolute left-0 top-0 h-full bg-link rounded-full"
+									style={{ height: railFillHeight }}
+									className="absolute left-0 top-0 w-full bg-link rounded-full"
 								/>
-
-								{/* Milestone markers — centered on the rail */}
-								{timelineItems.map((_, i) => {
-									const pct = (i / (n - 1)) * 100;
-									const isCurrent = activeDot === i;
-									const passed = activeDot > i;
-									return (
-										<div
-											key={i}
-											className="absolute top-1/2"
-											style={{ left: `${pct}%`, transform: 'translate(-50%, -50%)' }}
-										>
-											<div
-												className={`rounded-full transition-colors duration-300 ${
-													isCurrent
-														? 'w-3.5 h-3.5 bg-link'
-														: passed
-														? 'w-3 h-3 bg-cobalt'
-														: 'w-3 h-3 bg-cobalt/20'
-												}`}
-											/>
-										</div>
-									);
-								})}
 							</div>
+
+							{/* Milestone markers + labels */}
+							{timelineItems.map((item, i) => {
+								const top = (i / (n - 1)) * 100;
+								const isCurrent = activeDot === i;
+								const passed = activeDot > i;
+								return (
+									<div
+										key={i}
+										className="absolute flex items-center gap-3"
+										style={{ top: `${top}%`, transform: 'translateY(-50%)' }}
+									>
+										<div
+											className={`rounded-full transition-colors duration-300 shrink-0 ${
+												isCurrent
+													? 'w-3.5 h-3.5 bg-link'
+													: passed
+													? 'w-3 h-3 bg-cobalt'
+													: 'w-3 h-3 bg-cobalt/20'
+											}`}
+										/>
+										<span
+											className={`logo-text text-[12px] whitespace-nowrap transition-colors duration-300 ${
+												isCurrent
+													? 'text-white'
+													: passed
+													? 'text-white/60'
+													: 'text-white/25'
+											}`}
+										>
+											{item.company}
+										</span>
+									</div>
+								);
+							})}
 						</div>
 
 						{/* Single card — content swaps on activeDot change */}
@@ -196,7 +184,7 @@ export function ZoomParallax({ images }: ZoomParallaxProps) {
 								animate={{ opacity: 1, y: 0 }}
 								exit={{ opacity: 0, y: -10 }}
 								transition={{ duration: 0.18 }}
-								className="rounded-2xl border border-white/10 bg-black/60 backdrop-blur-md p-6 flex flex-col gap-4"
+								className="w-full rounded-2xl border border-white/10 bg-black/60 backdrop-blur-md p-6 flex flex-col gap-4"
 							>
 								{/* Avatar + meta */}
 								<div className="flex items-center gap-4">

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDownIcon } from '../../ui/icons';
 
 interface FeatureItem {
   id: number;
@@ -69,7 +69,7 @@ export default function AboutAccordion({ features = defaultFeatures }: Feature19
                     <h6 className={`text-xl px-4 font-semibold transition-colors ${isOpen ? 'text-foreground' : 'text-muted-foreground'}`}>
                       {feature.title}
                     </h6>
-                    <ChevronDown
+                    <ChevronDownIcon
                       className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
                     />
                   </button>
