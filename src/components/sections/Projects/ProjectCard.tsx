@@ -1,5 +1,5 @@
-import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { ArrowUpRightIcon } from '../../ui/icons';
 
 import type { Project } from '../../../types';
 import { GithubIcon } from '../../ui/icons';
@@ -65,7 +65,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             >
               <GithubIcon />
               <span className="text-xs font-medium tracking-wide text-black dark:text-white/80">GitHub</span>
-              <ArrowUpRight size={12} className="text-black dark:text-white" />
+              <ArrowUpRightIcon size={12} className="text-black dark:text-white" />
             </a>
           )}
           {project.demoUrl && (
@@ -76,7 +76,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               className="flex items-center gap-1.5 px-3 py-0.5 rounded-full border backdrop-blur-sm bg-[rgba(30,80,160,0.1)] border-[rgba(30,80,180,0.4)] dark:bg-[rgba(100,180,255,0.08)] dark:border-[rgba(100,180,255,0.25)]"
             >
               <span className="text-xs font-medium tracking-wide text-black dark:text-white/80">Demo</span>
-              <ArrowUpRight size={12} className="text-black dark:text-white" />
+              <ArrowUpRightIcon size={12} className="text-black dark:text-white" />
             </a>
           )}
         </div>

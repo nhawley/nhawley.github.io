@@ -1,10 +1,10 @@
-import { ArrowDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 import { ChatCircle } from './Hero/ChatCircle';
 import { RoleScramble } from './Hero/RoleScramble';
 import { ResumeButton } from './Hero/ResumeButton';
 import { TechStack } from './Hero/TechStack';
+import { ArrowDownIcon } from '../ui/icons';
 
 const roles = [
   'Full-Stack Developer',
@@ -80,7 +80,7 @@ export function Hero() {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         >
-          <ArrowDown size={32} />
+          <ArrowDownIcon size={32} />
         </motion.div>
       </div>
     </section>

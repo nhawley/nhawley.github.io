@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Sun, Moon } from 'lucide-react';
 
 import { useTheme } from '../../hooks/useTheme';
+import { SunIcon, MoonIcon } from '../ui/icons';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -99,7 +99,7 @@ export function Header() {
             className="p-2 rounded-full bg-cobalt/30 dark:bg-navy/30 hover:bg-white/55 dark:hover:bg-black/55 transition-colors cursor-pointer"
             aria-label="Toggle theme"
           >
-            {isDark ? <Sun size={24} /> : <Moon size={24} />}
+            {isDark ? <SunIcon size={24} /> : <MoonIcon size={24} />}
           </button>
         </div>
       </nav>
