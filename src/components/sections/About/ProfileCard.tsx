@@ -3,8 +3,8 @@ import { GithubIcon, LinkedinIcon } from '../../ui/icons';
 
 const stats = [
   { label: 'YRS', value: '8+' },
-  { label: 'PRs MERGED', value: '5.1K' },
-  { label: 'USERS SERVED', value: '300K' },
+  { label: 'Playwright', value: '4+' },
+  { label: 'React Native', value: '6+' },
 ];
 
 const skills = [
@@ -50,6 +50,7 @@ export function ProfileCard() {
           <div className="flex flex-col gap-1">
             <span className="text-xs font-semibold tracking-widest uppercase">Nate Hawley III</span>
             <span className="text-xs font-semibold tracking-widest uppercase opacity-80">Software Developer in Test</span>
+            <span className="text-[11px] tracking-wide opacity-60">SF Based • Globally Available</span>
           </div>
           <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-full border backdrop-blur-sm bg-green-500/10 border-green-500/40 dark:bg-green-400/10 dark:border-green-400/25">
             <span className="relative flex h-2 w-2">
@@ -90,8 +91,8 @@ export function ProfileCard() {
         </div>
 
         {/* Social Links */}
-        <div className="flex gap-2">
-          <Pill text="LinkedIn" href="https://www.linkedin.com/in/nhawley" icon={<LinkedinIcon />} />
+        <div className="flex gap-2 ">
+          <Pill text="LinkedIn" href="https://www.linkedin.com/in/nate-hawley-iii/" icon={<LinkedinIcon />} />
           <Pill text="GitHub" href="https://github.com/nhawley" icon={<GithubIcon />} />
         </div>
       </div>

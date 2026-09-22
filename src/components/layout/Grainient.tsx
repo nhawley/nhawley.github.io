@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import type { ReactNode } from 'react';
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
 import './Grainient.css';
 
@@ -101,7 +100,6 @@ void main(){
 `;
 
 const Grainient = ({
-  children,
   timeSpeed = 0.25,
   colorBalance = 0.0,
   warpStrength = 1.0,
@@ -126,7 +124,6 @@ const Grainient = ({
   color3 = '#B19EEF',
   className = ''
 }: {
-  children?: ReactNode;
   timeSpeed?: number;
   colorBalance?: number;
   warpStrength?: number;
@@ -215,15 +212,16 @@ const Grainient = ({
     programRef.current = program;
 
     const setSize = () => {
-      const width = Math.max(1, Math.floor(window.innerWidth));
-      const height = Math.max(1, Math.floor(window.innerHeight));
+      const width = Math.max(1, Math.floor(container.clientWidth));
+      const height = Math.max(1, Math.floor(container.clientHeight));
       renderer.setSize(width, height);
       const res = program.uniforms.iResolution.value;
       res[0] = gl.drawingBufferWidth;
       res[1] = gl.drawingBufferHeight;
     };
 
-    window.addEventListener('resize', setSize);
+    const resizeObserver = new ResizeObserver(setSize);
+    resizeObserver.observe(container);
     setSize();
 
     let raf = 0;
@@ -237,7 +235,7 @@ const Grainient = ({
 
     return () => {
       cancelAnimationFrame(raf);
-      window.removeEventListener('resize', setSize);
+      resizeObserver.disconnect();
       programRef.current = null;
       try {
         container.removeChild(canvas);
@@ -267,11 +265,7 @@ const Grainient = ({
     zoom
   ]);
 
-  return (
-    <div ref={containerRef} className={`grainient-container ${className}`.trim()}>
-      {children && <div className="grainient-content">{children}</div>}
-    </div>
-  );
+  return <div ref={containerRef} className={`grainient-container ${className}`.trim()} aria-hidden="true" />;
 };
 
 export default Grainient;

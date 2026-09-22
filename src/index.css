@@ -3,7 +3,8 @@
 
 @font-face {
   font-family: 'Padaloma';
-  src: url('./assets/fonts/Padaloma.ttf') format('truetype');
+  src: url('/fonts/Padaloma.ttf') format('truetype');
+  font-display: swap;
   font-weight: normal;
   font-style: normal;
 }
@@ -14,39 +15,24 @@
   --font-sans: "Geist", system-ui, sans-serif;  
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
   --color-black: #161616;
-  --color-navy: #091f5b;
-  --color-steel: #15205b;
-  --color-cobalt: #4f82b9;
+  --color-navy: #5b0917;
+  --color-steel: #5b1521;
+  --color-cobalt: #b94f61;
+  --color-link: #f77e92;
 
-  --color-h1: #f0f4ff;
-  --color-sub: #c8d8f0;
-  --color-link: #7eb8f7;
-
-  --color-h1-light :#0d1a4a;
-  --color-sub-light:  #2a3a6e;
+  --color-h1-light :#4a0d17;
+  --color-sub-light:  #6e2a35;
 }
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
   --color-border: var(--border);
-  --color-input: var(--input);
   --color-ring: var(--ring);
 }
 
@@ -54,34 +40,18 @@
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
 }
 
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
 }
 
@@ -89,11 +59,15 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   html, body {
     overflow-x: clip;
   }
   body {
     @apply bg-background text-foreground;
+    background-image: linear-gradient(180deg, color-mix(in oklab, var(--color-cobalt) 6%, transparent), transparent 320px);
   }
   h1 {
     font-family: 'Padaloma', serif;
@@ -110,4 +84,99 @@
     font-family: 'Padaloma', serif;
     text-transform: uppercase;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- Scroll-reveal (replaces framer-motion's whileInView) --- */
+@layer components {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    .reveal.in-view {
+      animation: reveal-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .reveal-fade {
+      opacity: 0;
+    }
+    .reveal-fade.in-view {
+      animation: reveal-fade 0.5s ease-out forwards;
+    }
+    /* Mount-triggered variants (hero content — visible on load, no scroll needed) */
+    .load-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: reveal-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: var(--delay, 0s);
+    }
+    .load-in-fade {
+      opacity: 0;
+      animation: reveal-fade 0.6s ease-out forwards;
+      animation-delay: var(--delay, 0s);
+    }
+  }
+}
+
+@keyframes reveal-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-fade {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blink-caret {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* --- Header --- */
+.site-header {
+  background: color-mix(in oklab, var(--color-cobalt) 35%, transparent);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+.site-header.is-scrolled {
+  background: color-mix(in oklab, var(--background) 75%, transparent);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 var(--border);
+}
+
+/* --- Hero background (static fallback for the WebGL shader) --- */
+.hero-gradient-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(160deg, var(--color-h1-light) 0%, var(--color-sub-light) 45%, var(--color-cobalt) 100%);
+}
+.dark .hero-gradient-fallback {
+  background: linear-gradient(160deg, var(--color-steel) 0%, var(--color-navy) 55%, var(--color-cobalt) 100%);
+}
+
+/* --- Timeline (Experience section) --- */
+.timeline-rail {
+  background: linear-gradient(to bottom, var(--color-cobalt), transparent);
 }

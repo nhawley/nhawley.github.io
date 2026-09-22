@@ -1,61 +1,17 @@
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-
-import { Globe } from './About/Globe';
-import { Pill } from './About/Pill';
+import { useInView } from '@/hooks/useInView';
 import { ProfileCard } from './About/ProfileCard';
-import AboutAccordion from './About/AboutAccordion';
 
 export function About() {
-  const [globeSize, setGlobeSize] = useState(400);
-
-  useEffect(() => {
-    const update = () => setGlobeSize(window.innerWidth < 768 ? 280 : 400);
-    update();
-    window.addEventListener('resize', update);
-    return () => window.removeEventListener('resize', update);
-  }, []);
+  const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.05 });
 
   return (
-    <section id="about" className="relative min-h-screen flex items-center justify-center px-4 md:px-8 pt-20">
-      <div className="max-w-5xl mx-auto">
-        <motion.h2
-          className="text-4xl font-bold mb-6 section-title"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          About
-        </motion.h2>
+    <section id="about" className="relative py-24 md:py-32 px-4 md:px-8">
+      <div ref={ref} className="max-w-[760px] mx-auto">
+        <h2 className={`reveal text-4xl font-bold mb-6 ${inView ? 'in-view' : ''}`}>About</h2>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 mb-10 rounded-xl p-4 backdrop-blur-md bg-white/3 border border-white/10"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-        >
-          <div className="order-1 md:order-2">
-            <ProfileCard />
-          </div>
-          <div className="flex flex-col items-center justify-center py-2 order-2 md:order-1">
-            <Pill text="Interactive" />
-            <Globe size={globeSize} />
-            <p className='text-center text-sm mb-1'>SF Based • Globally Available</p>
-          </div>
-        </motion.div>
-
-        <div className="grid mb-10 rounded-xl p-4 backdrop-blur-md bg-white/3 border border-white/10">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-          >
-            <AboutAccordion />
-          </motion.div>
-        </div> 
-
+        <div className={`reveal mb-10 ${inView ? 'in-view' : ''}`} style={{ animationDelay: '0.1s' }}>
+          <ProfileCard />
+        </div>
       </div>
     </section>
   );
