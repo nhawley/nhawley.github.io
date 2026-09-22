@@ -64,3 +64,6 @@ typings/
 # macOS
 .DS_Store
 docs/
+
+# Throwaway SSR bundle used only during the prerender build step
+dist-ssr/
