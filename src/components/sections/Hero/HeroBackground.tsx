@@ -38,9 +38,9 @@ export function HeroBackground() {
       {!isServer && !useStatic && inView && (
         <Suspense fallback={null}>
           <Grainient
-            color1={isDark ? '#5b1521' : '#fff0f2'}
-            color2={isDark ? '#b94f61' : '#b94f61'}
-            color3={isDark ? '#5b0917' : '#f0c8cf'}
+            color1={isDark ? '#4a2014' : '#fff6f2'}
+            color2={isDark ? '#ff8a65' : '#ff8a65'}
+            color3={isDark ? '#170e0d' : '#ffd4b8'}
             timeSpeed={0.25}
             colorBalance={0}
             warpStrength={2}

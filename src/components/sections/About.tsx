@@ -5,7 +5,7 @@ export function About() {
   const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.05 });
 
   return (
-    <section id="about" className="relative py-24 md:py-32 px-4 md:px-8">
+    <section id="about" className="relative pt-24 md:pt-32 pb-12 md:pb-16 px-4 md:px-8">
       <div ref={ref} className="max-w-[760px] mx-auto">
         <h2 className={`reveal text-4xl font-bold mb-6 ${inView ? 'in-view' : ''}`}>About</h2>
 

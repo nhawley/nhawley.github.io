@@ -6,7 +6,7 @@ export function ProjectsWindow() {
   return (
     <div
       id="projects"
-      className="load-in-fade w-full max-w-xl lg:max-w-[760px] mx-auto mt-10 scroll-mt-24 rounded-xl overflow-hidden border border-white/10 bg-[#14121f] text-left shadow-2xl"
+      className="load-in-fade w-full max-w-xl lg:max-w-[760px] mx-auto mt-10 scroll-mt-24 rounded-xl overflow-hidden border border-white/10 bg-[#170E0D]/90 backdrop-blur-sm text-left shadow-2xl"
       style={{ '--delay': '0.5s' } as React.CSSProperties}
     >
       {/* Title bar */}
@@ -25,7 +25,7 @@ export function ProjectsWindow() {
       </div>
 
       {/* Body */}
-      <div className="p-5 font-mono text-sm text-left">
+      <div className="p-5 font-mono text-[15px] leading-[1.6] text-left">
         <p className="text-link font-bold mb-5">~/ projects</p>
 
         <div className="flex flex-col gap-4">
@@ -37,7 +37,7 @@ export function ProjectsWindow() {
                   Active
                 </span>
               </div>
-              <p className="text-white/60 text-xs md:text-sm mt-1.5 leading-relaxed">{project.description}</p>
+              <p className="text-white/60 mt-1.5">{project.description}</p>
             </div>
           ))}
         </div>
@@ -46,7 +46,7 @@ export function ProjectsWindow() {
           href="https://github.com/nhawley"
           target="_blank"
           rel="noopener noreferrer"
-          className="block mt-5 text-white/40 hover:text-link transition-colors text-xs"
+          className="block mt-5 text-white/40 hover:text-link transition-colors"
         >
           $ open github.com/nhawley
         </a>

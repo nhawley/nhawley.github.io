@@ -2,13 +2,14 @@ import { Pill } from './Pill';
 import { GithubIcon, LinkedinIcon } from '../../ui/icons';
 
 const stats = [
-  { label: 'YRS', value: '8+' },
+  { label: 'Dev', value: 'Experienced' },
   { label: 'Playwright', value: '4+' },
   { label: 'React Native', value: '6+' },
+  { label: 'Web', value: '8+'}
 ];
 
 const skills = [
-  'TYPESCRIPT', 'REACT NATIVE', 'REACT', 'PYTHON', 'AI/ML', 'NODE.JS', 'NEXT.JS', 'PLAYWRIGHT', 'K6'
+  'TYPESCRIPT', 'PYTHON', 'PLAYWRIGHT', 'REACT NATIVE', 'REACT', 'NODE.JS'
 ];
 
 export function ProfileCard() {
@@ -27,7 +28,7 @@ export function ProfileCard() {
           <img
             src="/img/profile.avif"
             alt="Nate Hawley III"
-            className="w-24 h-24 rounded-full object-cover object-top border-2 border-white/35 shadow-lg"
+            className="w-28 h-28 rounded-full object-cover object-top border-2 border-white/35 shadow-lg"
           />
         </div>
       </div>
@@ -48,30 +49,35 @@ export function ProfileCard() {
         {/* Header */}
         <div className="flex items-start justify-between">
           <div className="flex flex-col gap-1">
-            <span className="text-xs font-semibold tracking-widest uppercase">Nate Hawley III</span>
-            <span className="text-xs font-semibold tracking-widest uppercase opacity-80">Software Developer in Test</span>
-            <span className="text-[11px] tracking-wide opacity-60">SF Based • Globally Available</span>
+            <span className="text-s font-semibold tracking-wide">Nate Hawley III</span>
+            <span className="text-s font-semibold tracking-wide opacity-90">Senior SDET</span>
+            <span className="text-xs font-bold tracking-wide mb-2 opacity-50">Bay Area Based • Globally Available</span>
           </div>
-          <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-full border backdrop-blur-sm bg-green-500/10 border-green-500/40 dark:bg-green-400/10 dark:border-green-400/25">
+          <div className="flex items-center gap-1.5 px-2 py-1 rounded-md border backdrop-blur-sm bg-green-500/10 border-green-500/40 dark:bg-green-400/10 dark:border-green-400/25">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-green-500 dark:bg-green-400" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500 dark:bg-green-400" />
             </span>
-            <span className="text-xs font-medium tracking-wide text-black dark:text-white/80">Available</span>
+            <span className="font-mono text-xs tracking-wide text-black dark:text-white/80">Available</span>
           </div>
         </div>
 
         {/* Description */}
         <div>
-          <p className="text-sm leading-relaxed opacity-95">
-            I'm a full-stack engineer with 8+ years of experience building high-performance
-            web and mobile apps. I specialize in TypeScript, React Native, and Playwright,
-            with a recent focus on integrating AI/ML capabilities into user-facing products.
+          <p className="text-base leading-relaxed opacity-95">
+            I'm a Senior Software Engineer who specializes in Playwright, CI/CD, React Native, React, and 
+            integrating AI/ML capabilities into user-facing products.
             <br /><br />
-            I'm currently deepening my AI engineering skills through the Overclock Fellowship
-            focused on LLM integration and customization. I combine a strong React/TypeScript
-            frontend foundation with hands-on testing, CI/CD pipeline design, and a track record
-            of reducing crash rates and scaling test coverage in fast-paced startup environments
+            Over the past year I've gone deep on LLMs. I finished the Overclock AI Engineering Fellowship
+            and built an open-source TypeScript eval framework for LLM agents. It uses typed test suites,
+            assertions on tool calls and turn/latency budgets, LLM-as-judge scoring, and regression diffs
+            against a baseline. After years of testing web and mobile apps, testing agents is the next
+            problem I want to focus on. Agents need the same release discipline as any other software.
+            <br /><br />
+            I combine a strong TypeScript foundation with hands-on testing, CI/CD pipeline design,
+            and a track record of reducing crash rates and scaling test coverage in fast-paced environments.
+            I'm interested in infrastructure, forward deployed, GTM engineering roles, and anywhere the job
+            is getting systems into production and keeping them working.
           </p>
         </div>
 
@@ -82,7 +88,7 @@ export function ProfileCard() {
             {skills.map((skill) => (
               <span
                 key={skill}
-                className="text-[9px] font-semibold tracking-widest uppercase px-2 py-0.5 border border-black/20 dark:border-white/20 rounded-sm opacity-70"
+                className="font-mono text-xs tracking-wide uppercase px-2 py-1 rounded-md border border-foreground/15 bg-foreground/5 opacity-80"
               >
                 {skill}
               </span>

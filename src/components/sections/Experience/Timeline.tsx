@@ -75,7 +75,7 @@ function TimelineRow({ item, index }: { item: TimelineItem; index: number }) {
         </div>
         <ul className="flex flex-col gap-2">
           {item.bullets.map((bullet) => (
-            <li key={bullet} className="flex gap-2 text-sm leading-relaxed opacity-90">
+            <li key={bullet} className="flex gap-2 text-base leading-relaxed opacity-90">
               <span className="mt-1.5 w-1 h-1 rounded-full bg-current shrink-0 opacity-50" />
               {bullet}
             </li>
