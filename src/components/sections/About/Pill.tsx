@@ -14,11 +14,11 @@ export function Pill({ text, href, icon }: PillProps) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center gap-1.5 px-3 py-0.5 rounded-full border backdrop-blur-sm bg-[rgba(30,80,160,0.1)] border-[rgba(30,80,180,0.4)] dark:bg-[rgba(100,180,255,0.08)] dark:border-[rgba(100,180,255,0.25)]"
+      className="flex items-center gap-1.5 font-mono text-xs px-3 py-1.5 rounded-md border border-foreground/15 bg-foreground/5 hover:border-ember/60 hover:bg-foreground/10 hover:text-link transition-colors"
     >
       <span className="flex items-center">{icon}</span>
-      <span className="text-xs font-medium tracking-wide text-black dark:text-white/80">{text}</span>
-      <ArrowUpRightIcon size={12} className="text-black dark:text-white" />
+      <span className="tracking-wide">{text}</span>
+      <ArrowUpRightIcon size={12} />
     </a>
   );
 }

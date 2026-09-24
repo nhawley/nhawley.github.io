@@ -9,10 +9,12 @@ const socialLinks = [
 ];
 
 const roles = [
-  'Full-Stack Developer',
-  'Software Developer in Test (SDET)',
+  'Senior Software Engineer',
+  'SDET',
   'Mobile Engineer',
-  'Automated QA Engineer',
+  'AI Engineer',
+  'FDE',
+  'GTM Engineer'
 ];
 
 export function Hero() {
@@ -39,10 +41,10 @@ export function Hero() {
         />
 
         <p
-          className="load-in-fade text-lg md:text-xl mb-4 max-w-2xl mx-auto text-center"
+          className="load-in-fade text-base md:text-lg mb-4 max-w-2xl mx-auto text-center"
           style={{ '--delay': '0.3s' } as React.CSSProperties}
         >
-          Deploying Solutions & Automating Quality
+          Automating Quality & Deploying Solutions
         </p>
 
         <div

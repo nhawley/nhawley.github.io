@@ -4,9 +4,8 @@ import { useTheme } from '../../hooks/useTheme';
 import { SunIcon, MoonIcon } from '../ui/icons';
 
 const navItems = [
-  { label: 'About', href: '#about' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'whoami', href: '#about' },
+  { label: 'ls -exp', href: '#experience' },
 ];
 
 export function Header() {
@@ -90,29 +89,35 @@ export function Header() {
             NH3
           </button>
 
-          <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center space-x-6">
+          <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-2">
             {navItems.map((item) => (
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
                 aria-current={activeHref === item.href ? 'true' : undefined}
-                className={`cursor-pointer transition-colors ${
-                  activeHref === item.href ? 'text-foreground font-medium' : 'hover:text-link'
+                className={`font-mono text-xs px-3 py-1.5 rounded-md border transition-colors cursor-pointer ${
+                  activeHref === item.href
+                    ? 'border-ember/60 bg-foreground/10 text-link'
+                    : 'border-foreground/15 bg-foreground/5 hover:border-ember/60 hover:bg-foreground/10 hover:text-link'
                 }`}
               >
-                {item.label}
+                <span className="text-foreground/40">$</span> {item.label}
               </button>
             ))}
           </div>
 
           <div className="flex items-center gap-2">
-            <button onClick={toggleTheme} className="p-2 cursor-pointer" aria-label="Toggle theme">
-              {isDark ? <SunIcon size={24} /> : <MoonIcon size={24} />}
+            <button
+              onClick={toggleTheme}
+              className="p-1.5 rounded-md border border-foreground/15 bg-foreground/5 hover:border-ember/60 hover:bg-foreground/10 hover:text-link transition-colors cursor-pointer"
+              aria-label="Toggle theme"
+            >
+              {isDark ? <SunIcon size={18} /> : <MoonIcon size={18} />}
             </button>
 
             <button
               onClick={() => setMobileOpen((prev) => !prev)}
-              className="md:hidden p-2 rounded-full bg-cobalt/30 dark:bg-navy/30 hover:bg-white/55 dark:hover:bg-black/55 transition-colors cursor-pointer"
+              className="md:hidden p-2 rounded-full bg-ember/25 dark:bg-ink/50 hover:bg-white/55 dark:hover:bg-black/55 transition-colors cursor-pointer"
               aria-label="Toggle navigation menu"
               aria-expanded={mobileOpen}
             >
@@ -135,17 +140,19 @@ export function Header() {
         </div>
 
         {mobileOpen && (
-          <div className="md:hidden mt-4 flex flex-col gap-1 pb-2">
+          <div className="md:hidden mt-4 flex flex-col gap-2 pb-2">
             {navItems.map((item) => (
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
                 aria-current={activeHref === item.href ? 'true' : undefined}
-                className={`text-left px-2 py-2 rounded-md transition-colors cursor-pointer ${
-                  activeHref === item.href ? 'text-foreground font-medium bg-white/10' : 'hover:text-link hover:bg-white/10'
+                className={`text-left font-mono text-xs px-3 py-2 rounded-md border transition-colors cursor-pointer ${
+                  activeHref === item.href
+                    ? 'border-ember/60 bg-foreground/10 text-link'
+                    : 'border-foreground/15 bg-foreground/5 hover:border-ember/60 hover:bg-foreground/10 hover:text-link'
                 }`}
               >
-                {item.label}
+                <span className="text-foreground/40">$</span> {item.label}
               </button>
             ))}
           </div>
